@@ -6,7 +6,7 @@ var
         scope: ["devDependencies"]
     });
 
-var IS_DEV = true;                       //show status develop !!!NEED change to false!!!
+var IS_DEV = false;                       //show status develop !!!NEED change to false!!!
 
 /**task create html pages**/
 gulp.task("html", function () {
@@ -21,6 +21,7 @@ gulp.task("styles:app", function () {
         .pipe(plugins.if(IS_DEV, plugins.sourcemaps.init()))
         .pipe(plugins.plumber())                // catch errors
         .pipe(plugins.less())                   //converting to css
+        .pipe(plugins.cssnano())
         .pipe(plugins.rename("app.min.css"))    //rename file
         .pipe(plugins.if(IS_DEV, plugins.sourcemaps.write(".")))
         .pipe(gulp.dest("dist/css"))

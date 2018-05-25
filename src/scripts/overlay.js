@@ -6,7 +6,6 @@ var content = document.querySelector(".content"),
 
 clickPic();
 
-
 function clickPic() {
     content.addEventListener("click", function (e) {
         if (e.target.tagName === "IMG" || e.target.classList.contains("triangle")) {
